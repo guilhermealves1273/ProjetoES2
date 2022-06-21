@@ -1,6 +1,7 @@
 ﻿@model ProjetoES2.Entities.Utilizador
 @{
     ViewData["Title"] = "Registo";
+    Layout = "_LoginPartial";
 }
 <div class="text-center">
     
@@ -9,37 +10,38 @@
 </div>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 ">
         <form asp-controller="Utilizadores" asp-action="Criar" method="post">
             
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-group">
-                <label class="control-label"> Nome de Utilizador</label>
-                <input type="text" asp-for="Nome" class="form-control"/>
+                <label class="control-label">Nome de Utilizador</label>
+                <input type="text" asp-for="Nome" class="form-control" required/>
                 <span asp-validation-for="Nome" class="text-danger"></span>
                 
             </div>
             <div class="form-group">
-                <label class="control-label"> Email</label>
-                <input type="email" asp-for="Email" class="form-control"/>
+                <label class="control-label">Email</label>
+                <input type="email" asp-for="Email" class="form-control" required/>
                 <span asp-validation-for="Email" class="text-danger"></span>
 
             </div>
 
             <div class="form-group">
                 <label class="control-label">Password</label>
-                <input type="password" asp-for="Password" class="form-control"/>
+                <input type="password" asp-for="Password" class="form-control" required/>
 
             </div>
 
             <div class="form-group">
                 <label class="control-label">Numero de horas diárias</label>
-                <input type="number" asp-for="NumHorasDia" class="form-control"/>
+                <input type="number" asp-for="NumHorasDia" class="form-control" required/>
 
 
             </div>
-            <button type="submit" class="btn btn-primary"> Registar</button>
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px"> Registar</button>
+            <br>
             <a asp-controller="Login" asp-action="Index" role="button">Voltar</a>
         </form>
     </div>
