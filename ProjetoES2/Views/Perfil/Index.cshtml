@@ -1,0 +1,39 @@
+﻿@model ProjetoES2.Entities.Utilizador
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<h2>Perfil</h2>
+
+<dl class="row">
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.Nome)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.Nome)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.Password)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.Password)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.NumHorasDia)
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.NumHorasDia)
+    </dd>
+</dl>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary" role="button"  asp-controller="Perfil" asp-action="Editar"> Editar Perfil</a>
+</div>
