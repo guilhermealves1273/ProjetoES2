@@ -9,6 +9,9 @@
 
     <ItemGroup>
         <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+        <None Remove="Pages\ProjetoControler\**" />
+        <None Remove="Pages\ProjetoContr\**" />
+        <None Remove="Repositorio\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -16,6 +19,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.6" />
+        <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.6">
           <PrivateAssets>all</PrivateAssets>
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,6 +27,44 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.6" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.6" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Startup.cs" />
+      <Compile Remove="Controllers\Projeto.cs" />
+      <Compile Remove="Models\ProjetoViewModel.cs" />
+      <Compile Remove="Models\UtilizadorViewModel.cs" />
+      <Compile Remove="Models\TarefasViewModel.cs" />
+      <Compile Remove="Pages\ProjetoControler\**" />
+      <Compile Remove="Views\Projeto.cshtml.cs" />
+      <Compile Remove="Controllers\ProjetoControler.cs" />
+      <Compile Remove="Pages\ProjetoContr\**" />
+      <Compile Remove="Controllers\ProjetoContr.cs" />
+      <Compile Remove="Startuup.cs" />
+      <Compile Remove="Repositorio\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\ProjetoControler\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\ProjetoContr\Index.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Pages\ProjetoControler\**" />
+      <EmbeddedResource Remove="Pages\ProjetoContr\**" />
+      <EmbeddedResource Remove="Repositorio\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Pages\ProjetoControler\**" />
+      <Content Remove="Views\Projeto.cshtml" />
+      <Content Remove="Pages\ProjetoContr\**" />
+      <Content Remove="Views\Login.razor" />
+      <Content Remove="Repositorio\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages" />
     </ItemGroup>
 
 </Project>
