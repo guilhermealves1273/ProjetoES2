@@ -26,8 +26,7 @@ public class UtilizadoresController : Controller
     {
         _Context = new MyDbContext();
     }
-
-
+    
     public IActionResult Index()
     {
 

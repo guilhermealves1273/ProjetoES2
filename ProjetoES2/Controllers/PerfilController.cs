@@ -24,7 +24,6 @@ public class PerfilController : Controller
 
     public IActionResult Editar()
     {
-        
         return View();
     }
 

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ProjetoES2.Entities.Tarefa>
+@{
+    ViewData["Title"] = "Listagem de tarefas";
+}
+
+<p>
+    
+</p>
+  
+<h1> Listagem de Tarefas</h1>
+    
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataHoraInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataHoraFim)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoHora)
+        </th>
+                
+               
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataHoraInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataHoraFim)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+
+            <td>
+                <a asp-route-id="@item.IdProjeto">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
