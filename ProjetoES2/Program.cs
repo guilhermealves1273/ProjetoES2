@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using ProjetoES2;
 using ProjetoES2.Context;
 using ProjetoES2.Data;
 
