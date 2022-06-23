@@ -44,10 +44,16 @@ public class UtilizadoresController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Criar(Utilizador utilizador)
     {
+        var user = _Context.Utilizadores.ToList().Count;
         
-            _Context.Add(utilizador);
-            await _Context.SaveChangesAsync();
-            return RedirectToAction("Index","Login");
+        if (user.Equals(0))
+        {
+            utilizador.tipo = "Admin";
+        }
+        
+        _Context.Add(utilizador);
+        await _Context.SaveChangesAsync();
+        return RedirectToAction("Index","Login");
 
     }
 }

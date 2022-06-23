@@ -45,6 +45,12 @@ public class LoginController : Controller
             return RedirectToAction("Index","Login");
         }
     
+    [HttpPost]
+    public async Task<IActionResult> Logout(Index index)
+    {
+        
+        return RedirectToAction("Index", index);
+    }
 
 
 
