@@ -108,7 +108,25 @@ public class ProjetoController : Controller
         return View(tarefa1);
 
     }
-    
-    
+    public async Task<IActionResult> DesassociarTarefa(int id)
+    {
+       
+        var tarefa = await _Context.Tarefas.FirstOrDefaultAsync(m => m.IdTarefa == id);
+        
+
+        return View(tarefa);
+    }
+[HttpPost]
+[ActionName("DesassociarTarefa")]
+    public async Task<IActionResult> Desassociar(int id)
+    {
+        var tarefa = _Context.Tarefas.Find(id);
+        Console.Write("numeroTarefas:"+tarefa.IdTarefa+"\n");
+        tarefa.IdProjeto = 0;
+        _Context.Tarefas.Update(tarefa);
+        await _Context.SaveChangesAsync();
+        return RedirectToAction("ListarTarefas");
+    }
+
 }
     

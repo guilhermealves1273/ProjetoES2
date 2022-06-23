@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using NuGet.Packaging.Signing;
 
 namespace ProjetoES2.Models;
 
@@ -12,7 +13,7 @@ public class TarefaModel
         this.dataInicio = tarefa.DataInicio;
         this.dataFim = tarefa.DataFim;
         this.precoHora = tarefa.PrecoHora;
-        this.idProjeto = tarefa.IdProjeto;
+        this.idProjeto = (int)tarefa.IdProjeto;
         this.Id_user = tarefa.IdUser;
         this.Estado = tarefa.estado;
        

@@ -37,7 +37,7 @@ namespace ProjetoES2.Entities
         [Column("NumHorasDia")]
         public double NumHorasDia { get; set; }
         
-        public string tipo { get; set; }
+       
 
   /*
         public virtual ICollection<UtilizadorProjeto> UtilizadorProjetos { get; set; }

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using MessagePack;
 using Microsoft.Build.Framework;
+using NuGet.Packaging.Signing;
 
 namespace ProjetoES2.Entities
 {

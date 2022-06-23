@@ -10,6 +10,8 @@ namespace ProjetoES2.Context
     {
         public MyDbContext()
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
         }
 
         public MyDbContext(DbContextOptions<MyDbContext> options)
@@ -109,7 +111,8 @@ namespace ProjetoES2.Context
                     .HasMaxLength(50)
                     .HasColumnName("password");
 
-                entity.Property(e => e.tipo).HasColumnName("tipo");
+                
+                
             });
 /*
             modelBuilder.Entity<UtilizadorProjeto>(entity =>

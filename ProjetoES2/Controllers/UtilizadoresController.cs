@@ -46,7 +46,7 @@ public class UtilizadoresController : Controller
     {
         
             _Context.Add(utilizador);
-            _Context.SaveChanges();
+            await _Context.SaveChangesAsync();
             return RedirectToAction("Index","Login");
 
     }
