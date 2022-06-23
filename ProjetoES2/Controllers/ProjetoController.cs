@@ -81,9 +81,22 @@ public class ProjetoController : Controller
     public async Task<IActionResult> deleteConfirmacao(int id)
     {
         var projeto = _Context.Projetos.Find(id);
-        _Context.Remove(projeto);
+        _Context.Projetos.Remove(projeto);
+      
+            
+        var tarefas = _Context.Tarefas.ToList().FindAll(x => x.IdProjeto == id).Count;
+         
+        Console.Write("numeroTarefas:"+tarefas+"\n");
         
-        _Context.SaveChangesAsync();
+        for (int i = 0; i < tarefas; i++)
+        {
+           var tarefa = _Context.Tarefas.First(x => x.IdProjeto == id);
+            _Context.Tarefas.Remove(tarefa);
+            _Context.SaveChanges();
+
+        }
+        
+        await _Context.SaveChangesAsync();
         return RedirectToAction("Index");
 
     }

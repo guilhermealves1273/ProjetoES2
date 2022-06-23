@@ -9,25 +9,24 @@ public class TarefaModel
     {
 
         this.descricao = tarefa.Descricao;
-        this.dataHora_inicio = tarefa.DataHoraInicio;
-        this.dataHora_fim = tarefa.DataHoraFim;
+        this.dataInicio = tarefa.DataInicio;
+        this.dataFim = tarefa.DataFim;
         this.precoHora = tarefa.PrecoHora;
         this.idProjeto = tarefa.IdProjeto;
         this.Id_user = tarefa.IdUser;
         this.Estado = tarefa.estado;
+       
 
     }
-    
-    
     [Required]
     public String descricao { get; set; }
 
     [Required]
-    public DateTime dataHora_inicio { get; set; }
+    public DateTime dataInicio { get; set; }
 
     [Required]
-    public DateTime dataHora_fim{ get; set; }
-   
+    public DateTime dataFim{ get; set; }
+    
     public double precoHora{ get; set; }
     
     public int idProjeto{ get; set; }

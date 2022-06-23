@@ -64,14 +64,14 @@ namespace ProjetoES2.Context
 
                 entity.Property(e => e.IdTarefa).HasColumnName("idTarefa");
 
-                entity.Property(e => e.DataHoraFim)
-                    .HasColumnName("dataHora_fim")
+                entity.Property(e => e.DataFim)
+                    .HasColumnName("dataFim")
                     .HasDefaultValueSql("CURRENT_DATE");
 
-                entity.Property(e => e.DataHoraInicio)
-                    .HasColumnName("dataHora_inicio")
+                entity.Property(e => e.DataInicio)
+                    .HasColumnName("dataInicio")
                     .HasDefaultValueSql("CURRENT_DATE");
-
+                
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(150)
                     .HasColumnName("descricao");
@@ -108,6 +108,8 @@ namespace ProjetoES2.Context
                 entity.Property(e => e.Password)
                     .HasMaxLength(50)
                     .HasColumnName("password");
+
+                entity.Property(e => e.tipo).HasColumnName("tipo");
             });
 /*
             modelBuilder.Entity<UtilizadorProjeto>(entity =>
