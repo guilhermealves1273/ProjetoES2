@@ -64,12 +64,15 @@
             </td>
             
             <td>
-                @Html.DisplayFor(modelItem => item.PrecoHora)
+                @Html.DisplayFor(modelItem => item.estado)
             </td>
             <td>
-                <a   asp-route-id="@item.IdTarefa">Terminar Tarefa</a> |
-                <a   asp-route-id="@item.IdTarefa">Apagar</a>
+                <a   asp-action="Terminar" asp-route-id="@item.IdTarefa">Terminar Tarefa</a> |
+                <a   asp-action="Apagar" asp-route-id="@item.IdTarefa">Apagar</a>
             </td>
         </tr>
     }
 </table>
+
+
+

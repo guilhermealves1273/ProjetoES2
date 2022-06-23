@@ -34,7 +34,8 @@ public class TarefaController : Controller
         tarefa.IdUser = UserSession.idUtilizador;
         tarefa.estado = "Em curso";
         tarefa.DataInicio = DateTime.Now;
-        tarefa.IdProjeto = 0;
+        tarefa.DataFim= null;
+        tarefa.IdProjeto = null;
         
         Console.WriteLine(tarefa.Descricao);
         Console.WriteLine(tarefa.PrecoHora);
@@ -49,4 +50,56 @@ public class TarefaController : Controller
         await _Context.SaveChangesAsync();
         return RedirectToAction("Index", "Tarefa");
     }
+    
+    public async Task<IActionResult> Terminar(int id)
+    {
+        
+        var tarefa = _Context.Tarefas.FirstOrDefault(m => m.IdTarefa == id);
+        return View(tarefa);
+    }
+
+    [HttpPost]
+    [ActionName("Terminar")]
+    public async Task<IActionResult> TerminarConfirmacao(int id)
+    {
+        var tarefa = _Context.Tarefas.Find(id);
+        tarefa.estado = "Terminada";
+        tarefa.DataFim= DateTime.Now;
+        
+        
+        Console.WriteLine(tarefa.Descricao);
+        Console.WriteLine(tarefa.PrecoHora);
+        Console.WriteLine(tarefa.IdUser);
+        Console.WriteLine(tarefa.estado);
+        Console.WriteLine(tarefa.DataInicio);
+        Console.WriteLine(tarefa.DataFim);
+        Console.WriteLine(tarefa.IdProjeto);
+        
+        
+        
+        _Context.Tarefas.Update(tarefa);
+      
+        
+        
+        await _Context.SaveChangesAsync();
+        return RedirectToAction("Index");
+
+    }
+    public async Task<IActionResult> Apagar(int id)
+    {
+        var tarefa = _Context.Tarefas.FirstOrDefault(m => m.IdTarefa == id);
+        return View(tarefa);
+    }
+
+    [HttpPost]
+    [ActionName("Apagar")]
+    public async Task<IActionResult> ApagarConfirmacao(int id)
+    {
+        var tarefa = _Context.Tarefas.Find(id);
+        _Context.Tarefas.Remove(tarefa);
+        await _Context.SaveChangesAsync();
+        return RedirectToAction("Index");
+
+    }
+    
 }

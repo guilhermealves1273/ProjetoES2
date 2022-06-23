@@ -71,8 +71,6 @@ public class ProjetoController : Controller
        
 
         var projeto = await _Context.Projetos.FirstOrDefaultAsync(m => m.IdProjeto == id);
-        
-
         return View(projeto);
     }
 

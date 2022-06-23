@@ -26,7 +26,7 @@ public class TarefaModel
     public DateTime dataInicio { get; set; }
 
     [Required]
-    public DateTime dataFim{ get; set; }
+    public DateTime? dataFim{ get; set; }
     
     public double precoHora{ get; set; }
     

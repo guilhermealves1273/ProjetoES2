@@ -26,14 +26,14 @@ namespace ProjetoES2.Entities
         public DateTime DataInicio { get; set; }
         
         [Column("dataFim")]
-        public DateTime DataFim { get; set; }
+        public DateTime? DataFim { get; set; }
         
        
         [Column("precoHora")]
         public double PrecoHora { get; set; }
         
         [Column("idProjeto")]
-        public int IdProjeto { get; set; }
+        public int? IdProjeto { get; set; }
         
         
         [Column("Id_user")]
