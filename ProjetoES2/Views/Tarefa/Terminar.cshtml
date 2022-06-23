@@ -1,0 +1,42 @@
+﻿@model ProjetoES2.Entities.Tarefa
+
+@{
+    ViewData["Title"] = "Terminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Apagar Tarefa</h1>
+
+<h3>Tem a certeza que quer terminar esta tarefa?</h3>
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecoHora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecoHora)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DataInicio)
+        </dd>
+        
+        
+    </dl>
+    
+    <form asp-action="">
+        <input type="hidden" asp-for="IdTarefa" />
+        <input type="submit" value="Terminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

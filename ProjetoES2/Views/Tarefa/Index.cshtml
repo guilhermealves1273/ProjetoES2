@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ProjetoES2.Entities.Tarefa>
+@{
+    ViewData["Title"] = "Listagem de Tarefas";
+}
+
+  
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary" role="button"  asp-controller="Tarefa" asp-action="criar"> Criar nova Tarefa</a>
+</div>
+  
+<p>
+    
+</p>
+  
+<h1> Listagem de Tarefas</h1>
+    
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataFim)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.IdProjeto)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoHora)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+                
+               
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem =>item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFim)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProjeto)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+            <td>
+                <a   asp-route-id="@item.IdTarefa">Terminar Tarefa</a> |
+                <a   asp-route-id="@item.IdTarefa">Apagar</a>
+            </td>
+        </tr>
+    }
+</table>

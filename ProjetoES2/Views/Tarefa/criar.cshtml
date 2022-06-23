@@ -1,0 +1,31 @@
+﻿@model ProjetoES2.Entities.Tarefa
+@{
+    ViewData["Title"] = "Criar nova tarefa";
+}
+<div class="text-center">
+    
+    <h1 class="display-4">Criar nova tarefa </h1>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Tarefa" asp-action="criar" method="post">
+         
+            <div class="form-group">
+                <label  class="control-label">Descrição da tarefa</label>
+                <input type="text" asp-for="Descricao" class="form-control" placeholder="Digite a descrição da tarefa">
+            </div>
+            <div class="form-group">
+                <label  class="control-label">Preço por Hora</label>
+                <input type="text" asp-for="PrecoHora" class="form-control" placeholder="Digite o preco por hora da tarefa">
+            </div>
+
+            
+
+            <input type="submit" class="btn btn-primary" value="Criar"/>
+            <a asp-controller="Tarefa" asp-action="Index" role="button">Voltar</a>
+        </form>
+
+    </div>
+</div>
