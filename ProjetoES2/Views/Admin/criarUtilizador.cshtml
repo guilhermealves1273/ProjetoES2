@@ -1,0 +1,54 @@
+﻿@model ProjetoES2.Entities.Utilizador
+
+@{
+    ViewBag.Title = "title";
+    Layout = "LayoutAdmin";
+}
+
+<h2>Criar Novo Utilizador</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Admin" asp-action="criarUtilizador" method="post">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label class="control-label"> Nome de Utilizador</label>
+                <input type="text" asp-for="Nome" class="form-control"/>
+                <span asp-validation-for="Nome" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Email</label>
+                <input type="email" asp-for="Email" class="form-control"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+
+            </div>
+            
+             <div class="form-group">
+                  <label class="control-label">Password</label>
+                   <input type="password" asp-for="Password" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Numero de horas diárias</label>
+                <input type="number" asp-for="NumHorasDia" class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Tipo de utilizador</label>
+                <select asp-for="tipo">
+                    <option value="admin">Administrador</option>
+                    <option value="user">Usuario</option>
+                    <option value="userManager">User Manager</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px"> Criar</button>
+            <br>
+            <a asp-controller="Admin" asp-action="ListarUtilizadores" role="button">Voltar</a>
+        </form>
+    </div>
+</div>
