@@ -33,14 +33,15 @@
             <div class="form-group">
                 <label class="control-label">Numero de horas diárias</label>
                 <input type="number" asp-for="NumHorasDia" class="form-control"/>
+                <span asp-validation-for="NumHorasDia" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                  <label class="control-label">Tipo de utilizador</label>
-                <select asp-for="tipo">
+                <select asp-for="tipo" class="form-control">
                     <option value="admin">Administrador</option>
                     <option value="user">Usuario</option>
-                    <option value="usserManager">User Manager</option>
+                    <option value="userManager">User Manager</option>
                 </select>
             </div>
             

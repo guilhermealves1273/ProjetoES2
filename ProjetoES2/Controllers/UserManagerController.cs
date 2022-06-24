@@ -45,15 +45,23 @@ public class UserManagerController : Controller
     [HttpPost]
     public async Task<IActionResult> EditarUtilizador(int id, Utilizador utilizador)
     {
-        var util = _context.Utilizadores.FirstOrDefault(x => x.IdUser == id);
+        var user = _context.Utilizadores.FirstOrDefault(u => u.IdUser == id);
 
-        util.Nome = utilizador.Nome;
-        util.NumHorasDia = utilizador.NumHorasDia;
-        util.Email = utilizador.Email;
+        if (ModelState.IsValid)
+        {
+            user.Nome = utilizador.Nome;
+            user.NumHorasDia = utilizador.NumHorasDia;
+            user.Email = utilizador.Email;
         
-        _context.Utilizadores.Update(util);
-        await _context.SaveChangesAsync();
-        return RedirectToAction("ListarUtilizadores");
+            _context.Utilizadores.Update(user);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("ListarUtilizadores");
+        }
+        else
+        {
+            return View();
+        }
+        
     }
     
     public async Task<IActionResult> criarUtilizador()

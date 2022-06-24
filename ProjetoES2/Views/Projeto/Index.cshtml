@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<ProjetoES2.Entities.Projeto>
 @{
     ViewData["Title"] = "Listagem de Projetos";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
   
@@ -9,11 +8,13 @@
     <a class="btn btn-primary" role="button"  asp-controller="Projeto" asp-action="criar"> Criar novo projeto</a>
   </div>
   
- <br/>
+  <p>
+    
+  </p>
   
     <h1> Listagem de Projetos</h1>
     
-    <table  id="tabela">
+    <table class="table">
         <thead>
             <tr>
                 <th>
@@ -24,9 +25,6 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.PrecoHora)
-                </th>
-                <th>
-                    
                 </th>
             </tr>
         </thead>

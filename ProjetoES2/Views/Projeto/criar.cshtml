@@ -15,21 +15,25 @@
          
   <div class="form-group">
     <label  class="control-label">Nome do Projeto</label>
-    <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do projeto">
+    <input type="text" asp-for="Nome" class="form-control">
+    <span asp-validation-for="Nome" class="text-danger"></span>
 
   </div>
   <div class="form-group">
     <label  class="control-label">Nome do Cliente</label>
-    <input type="text" asp-for="NomeCliente" class="form-control" placeholder="Digite o nome do Cliente">
+    <input type="text" asp-for="NomeCliente" class="form-control">
+    <span asp-validation-for="NomeCliente" class="text-danger"></span>
   </div>
 
   <div class="form-group">
     <label  class="control-label"> Preço por Hora</label>
-    <input type="number" asp-for="PrecoHora" class="form-control" placeholder="Digite o Preço por Hora">
+    <input type="number" asp-for="PrecoHora" class="form-control">
+    <span asp-validation-for="PrecoHora" class="text-danger"></span>
   </div>
   <p></p>
 
-  <input type="submit" class="btn btn-primary" value="Criar"/>
+         <input type="submit" class="btn btn-primary" value="Criar"/>
+         
   <a asp-controller="Projeto" asp-action="Index" role="button">Voltar</a>
 </form>
 

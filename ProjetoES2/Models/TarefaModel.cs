@@ -19,7 +19,7 @@ public class TarefaModel
        
 
     }
-    [Required]
+    [Required(ErrorMessage = "Introduza uma descrição para a tarefa")]
     public String descricao { get; set; }
 
     [Required]
@@ -28,6 +28,7 @@ public class TarefaModel
     [Required]
     public DateTime? dataFim{ get; set; }
     
+    [Required(ErrorMessage = "Introduza o preço por hora da tarefa")]
     public double precoHora{ get; set; }
     
     public int idProjeto{ get; set; }

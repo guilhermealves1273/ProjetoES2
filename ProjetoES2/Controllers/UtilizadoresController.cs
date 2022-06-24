@@ -48,14 +48,20 @@ public class UtilizadoresController : Controller
         
         if (user.Equals(0))
         {
-            utilizador.tipo = "Admin";
+            utilizador.tipo = "admin";
         }
 
-        utilizador.tipo = "user";
+        if (ModelState.IsValid)
+        {
+            _Context.Add(utilizador);
+            await _Context.SaveChangesAsync();
+            return RedirectToAction("Index","Login");
+        }
+        else
+        {
+            return View();
+        }
         
-        _Context.Add(utilizador);
-        await _Context.SaveChangesAsync();
-        return RedirectToAction("Index","Login");
 
     }
 }

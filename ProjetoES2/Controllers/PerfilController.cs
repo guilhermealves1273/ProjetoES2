@@ -30,15 +30,23 @@ public class PerfilController : Controller
     [HttpPost]
     public async Task<IActionResult> Editar(Utilizador utilizador)
     {
-        var util = _context.Utilizadores.FirstOrDefault(x => x.IdUser == UserSession.idUtilizador);
-        util.Nome = utilizador.Nome;
-        util.Email = utilizador.Email;
-        util.Password = utilizador.Password;
-        util.NumHorasDia = utilizador.NumHorasDia;
+        if (ModelState.IsValid)
+        {var util = _context.Utilizadores.FirstOrDefault(x => x.IdUser == UserSession.idUtilizador);
+            util.Nome = utilizador.Nome;
+            util.Email = utilizador.Email;
+            util.Password = utilizador.Password;
+            util.NumHorasDia = utilizador.NumHorasDia;
 
-        _context.Update(util);
-        _context.SaveChanges();
-        return RedirectToAction("Index");
+            _context.Update(util);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+            
+        }
+        else
+        {
+            return View();
+        }
+        
     }
 
 }

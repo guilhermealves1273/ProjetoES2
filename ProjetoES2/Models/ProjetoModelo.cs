@@ -14,13 +14,13 @@ public class ProjetoModelo
     }
     
     
-    [Required]
+    [Required(ErrorMessage = "Introduza nome do projeto")]
     public String nome { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Introduza nome de Cliente")]
     public String nomeCliente { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Introduza um preço por hora")]
     public double precoPorHora { get; set; }
    
     public int idUser { get; set; }

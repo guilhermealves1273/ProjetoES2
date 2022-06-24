@@ -5,7 +5,7 @@ using ProjetoES2.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjetoES2.Context;
-using ProjetoES2.Models;
+using Rotativa;
 
 namespace ProjetoES2.Controllers;
 
@@ -26,28 +26,31 @@ public class ProjetoController : Controller
         return View(projeto);
     }
 
+    public ActionAsPdf GeneratePDF()
+    {
+        return new ActionAsPdf("Index");
+    }
+
     public async Task<IActionResult> criar()
     {
-        
         return View();
-       
     }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> criar(Projeto projeto)
     {
-        projeto.idUser = UserSession.idUtilizador;
+
+        if (ModelState.IsValid)
+        {
+            projeto.idUser = UserSession.idUtilizador;
         
-        Console.WriteLine(projeto.idUser);
-        Console.WriteLine(projeto.Nome);
-        Console.WriteLine(projeto.NomeCliente);
-        Console.WriteLine(projeto.PrecoHora);
+            _Context.Projetos.Add(projeto); 
+            await _Context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
 
-
-        _Context.Projetos.Add(projeto); 
-        await _Context.SaveChangesAsync();
-        return RedirectToAction("Index");
+        return View();
 
     }
     
@@ -60,10 +63,18 @@ public class ProjetoController : Controller
     [HttpPost]
     public async Task<IActionResult> editar(Projeto projeto)
     {
-        projeto.idUser = UserSession.idUtilizador;
-        _Context.Update(projeto);
-        await _Context.SaveChangesAsync();
-        return View(projeto);
+        if (ModelState.IsValid)
+        {
+            projeto.idUser = UserSession.idUtilizador;
+            _Context.Update(projeto);
+            await _Context.SaveChangesAsync();
+            return View(projeto);
+        }
+        else
+        {
+            return View();
+        }
+        
     }
     
     public async Task<IActionResult> delete(int id)

@@ -25,12 +25,11 @@ public class LoginController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Index(LoginModel login)
     {
-        Console.WriteLine(1);
         var user = _context.Utilizadores
                 .FirstOrDefault(u => u.Email.Equals(login.Email) && u.Password.Equals(login.Password));
-            
-               
-            if (user != null)
+        
+
+        if (user != null && ModelState.IsValid)
             {
                 if (user.tipo.Equals("admin"))
                 { 
@@ -55,10 +54,10 @@ public class LoginController : Controller
                     return RedirectToAction("Index", "Home");
                 }
             }
-
+            
             ViewData["HasError"] = true;
 
-            return RedirectToAction("Index","Login");
+            return View();
         }
     
     [HttpPost]

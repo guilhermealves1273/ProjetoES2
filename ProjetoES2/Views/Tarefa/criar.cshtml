@@ -15,14 +15,16 @@
          
             <div class="form-group">
                 <label  class="control-label">Descrição da tarefa</label>
-                <input type="text" asp-for="Descricao" class="form-control" placeholder="Digite a descrição da tarefa">
+                <input type="text" asp-for="Descricao" class="form-control" >
+                <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label">Preço por Hora</label>
-                <input type="text" asp-for="PrecoHora" class="form-control" placeholder="Digite o preco por hora da tarefa">
+                <input type="text" asp-for="PrecoHora" class="form-control" >
+                 <span asp-validation-for="PrecoHora" class="text-danger"></span>
             </div>
             
-            <input type="submit" class="btn btn-primary" value="Criar"/>
+            <input style="margin-top: 10px" type="submit" class="btn btn-primary" value="Criar"/>
             <a asp-controller="Tarefa" asp-action="Index" role="button">Voltar</a>
         </form>
 

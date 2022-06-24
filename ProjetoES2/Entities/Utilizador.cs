@@ -10,33 +10,34 @@ namespace ProjetoES2.Entities
     {
         public Utilizador()
         {
-           /* UtilizadorProjetos = new HashSet<UtilizadorProjeto>();*/
-            
+            /* UtilizadorProjetos = new HashSet<UtilizadorProjeto>();*/
+
         }
 
-        [Key]
-        [Column("IdUser")]
-        public int IdUser { get; set; }
-        
-        [Required]
+        [Key] [Column("IdUser")] public int IdUser { get; set; }
+
+        [Required(ErrorMessage = "Nome é de preenchimento obrigatório")]
         [Column("Nome")]
-        [StringLength(100)]
+        [MinLength(2)]
+        [MaxLength(100)]
         public string Nome { get; set; } = null!;
-        
-        [Required]
-        [Column("Email")]
-        [StringLength(100)]
+
+
+        [Required(ErrorMessage = "Email é de preenchimento obrigatório")]
+        [EmailAddress(ErrorMessage = "Email inválido")]
         public string Email { get; set; } = null!;
-        
-        [Required]
+
+        [Required(ErrorMessage = "Password é de preenchimento obrigatório")]
         [Column("Password")]
-        [StringLength(100)]
+        [MinLength(6)]
+        [MaxLength(100)]
         public string Password { get; set; } = null!;
-        
-        [Required]
+
+        [Required(ErrorMessage = "Número de horas é de preenchimento obrigatório")]
         [Column("NumHorasDia")]
         public double NumHorasDia { get; set; }
         
+        [Required(ErrorMessage = "Obrigatório selecionar um tipo de utilizador")]
         public string tipo { get; set; }
 
   /*

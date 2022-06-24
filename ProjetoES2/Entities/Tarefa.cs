@@ -17,18 +17,17 @@ namespace ProjetoES2.Entities
         [Column("idTarefa")]
         public int IdTarefa { get; set; }
         
-        
+        [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Introduza uma descrição para a tarefa")]
         [Column("descricao")]
         public string Descricao { get; set; } = null!;
         
         
         [Column("dataInicio")]
         public DateTime DataInicio { get; set; }
-        
         [Column("dataFim")]
         public DateTime? DataFim { get; set; }
         
-       
+        [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Introduza o preço por hora da tarefa")]
         [Column("precoHora")]
         public double PrecoHora { get; set; }
         

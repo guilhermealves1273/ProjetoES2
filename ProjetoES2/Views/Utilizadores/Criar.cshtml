@@ -1,7 +1,9 @@
-﻿@model ProjetoES2.Entities.Utilizador
+﻿@using Microsoft.CodeAnalysis.Classification
+@model ProjetoES2.Entities.Utilizador
 @{
     ViewData["Title"] = "Registo";
     Layout = "_LoginPartial";
+    var data = new string[] { "User", "UserManager" };
 }
 <div class="text-center">
     
@@ -23,24 +25,41 @@
             </div>
             <div class="form-group">
                 <label class="control-label"> Email</label>
-                <input type="email" asp-for="Email" class="form-control"/>
+                <input  asp-for="Email" class="form-control"/>
                 <span asp-validation-for="Email" class="text-danger"></span>
 
             </div>
 
             <div class="form-group">
-                <label class="control-label">Password</label>
+                <label  class="control-label">Password</label>
                 <input type="password" asp-for="Password" class="form-control"/>
+                <span asp-validation-for="Password" class="text-danger"></span>
 
             </div>
 
             <div class="form-group">
                 <label class="control-label">Numero de horas diárias</label>
                 <input type="number" asp-for="NumHorasDia" class="form-control"/>
-
-
+                <span asp-validation-for="NumHorasDia" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary"> Registar</button>
+            
+            <div class="form-group">
+                <label class="control-label">Tipo de Utilizador</label>
+                <select asp-for="tipo" class="form-control">
+                    <option value="">
+                        Selecione um tipo de Utilizador
+                    </option>
+                    <option value="user">
+                        Utilizador Padrão
+                    </option>
+                    <option value="userManager">
+                        User Manager
+                    </option>
+                </select>
+                <span asp-validation-for="tipo" class="text-danger"></span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px"> Registar</button>
             <a asp-controller="Login" asp-action="Index"  role="button">Voltar</a>
         </form>
     </div>

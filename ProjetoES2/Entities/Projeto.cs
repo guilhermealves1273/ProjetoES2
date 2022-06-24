@@ -16,15 +16,15 @@ namespace ProjetoES2.Entities
         [Column("idProjeto")]
         public int IdProjeto { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Introduza nome do projeto")]
         [Column("nome")]
         public string Nome { get; set; } = null!;
         
-        [Required]
+        [Required(ErrorMessage = "Introduza nome de Cliente")]
         [Column("nomeCliente")]
         public string NomeCliente { get; set; } = null!;
         
-        [Required]
+        [Required(ErrorMessage = "Introduza um preço por hora")]
         [Column("precoHora")]
         public double PrecoHora { get; set; }
         
