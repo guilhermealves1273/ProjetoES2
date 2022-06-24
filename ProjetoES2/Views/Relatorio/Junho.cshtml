@@ -8,12 +8,20 @@
 <p>
     
 </p>
-
-<h1>Junho</h1>
+<div class="text-center">
+<h3>Tarefas de Junho</h3>
+</div>
 <br/>
 
+<p>
+    
+</p>
 
-<p> Tarefas</p>
+<p>
+    
+</p>
+
+
 
     
 <table class="table">
@@ -23,37 +31,27 @@
     <thead>
     <tr>
         <th>
-            @Html.DisplayNameFor(Model => Model.tarefas)
+            <h4>Descrição</h4>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tarefas)
+            <h4>Preço por Hora</h4>
         </th>
 
 
-        <th>
-            @Html.DisplayNameFor(model => model.tarefas)
-        </th>
+       
 
-        <th>
-            @Html.DisplayNameFor(model => model.HorasTotais)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.PrecoTotal)
-        </th>
+       
 
     </tr>
     </thead>
     <tbody>
     
-    @foreach (var item in Model)
-                     {
+   
     @foreach (var x in Model.tarefas)
     {
-       
-            <tr>
+        <tr>
                 <td>
-                    @Html.DisplayFor(item=>x.Descricao))
+                    @Html.DisplayFor(item=>x.Descricao)
                 </td>
                 <td>
                     @Html.DisplayFor(item=>x.PrecoHora)
@@ -61,13 +59,13 @@
                 
 
             </tr>
-        }
+        
     }
 </table>
-
-<dt> Numero de horas gastas em Junho:@Model.HorasTotais </dt>
-
-<dt> Preço Total do mês de Junho em Tarefas:@Model.PrecoTotal</dt>
+<p></p>
+<dt> Numero de horas gastas em Junho: @Model.HorasTotais </dt>
+<p></p>
+<dt> Preço Total do mês de Junho em Tarefas: @Model.PrecoTotal</dt>
 
 <div>
     <a asp-action="Index">Voltar</a>

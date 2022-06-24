@@ -57,9 +57,13 @@ public class RelatorioController : Controller
        // var tarefas = _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 6 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
        List<Tarefa> tarefas = new List<Tarefa>();
        tarefas= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 6 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
+       
        RelatorioModel model = new RelatorioModel();
        model.tarefas = tarefas;
-       model.HorasTotais = 1;
+       
+       
+
+       model.HorasTotais =1;
        model.PrecoTotal = 2;
         return View(model);
     }
