@@ -1,0 +1,65 @@
+﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model IEnumerable<ProjetoES2.Entities.Utilizador>
+@{
+    ViewData["Title"] = "Listagem de Tarefas";
+    Layout = "LayoutAdmin";
+}
+
+<p>
+    
+</p>
+  
+<h1> Listagem de Utilizadores</h1>
+    
+<table class="table">
+<thead>
+<tr>
+    <th>
+        @Html.DisplayNameFor(model => model.IdUser)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Nome)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.Email)
+    </th>
+        
+    <th>
+        @Html.DisplayNameFor(model => model.NumHorasDia)
+    </th>
+    
+    <th>
+            @Html.DisplayNameFor(model => model.tipo)
+    </th>
+           
+</tr>
+</thead>
+<tbody>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.NumHorasDia)
+        </td>
+        
+         <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+         </td>
+         <td>
+             <a  asp-action="EditarUtilizador" asp-route-id="@item.IdUser">Editar</a>
+             <a  asp-action="ApagarUtilizador" asp-route-id="@item.IdUser">Apagar</a>
+         </td>
+        
+    </tr>
+}
+</Table>

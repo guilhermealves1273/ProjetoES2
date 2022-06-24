@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ProjetoES2.Entities.Projeto>
+@{
+    ViewData["Title"] = "Listagem de Projetos";
+    Layout = "LayoutAdmin";
+}
+
+<p>
+    
+</p>
+  
+<h1> Listagem de Projetos</h1>
+    
+<table class="table">
+    <thead>
+    <tr>
+        
+        <th>
+              @Html.DisplayNameFor(model => model.IdProjeto)
+         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoHora)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                 @Html.DisplayFor(modelItem=>item.IdProjeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    }
+</table>

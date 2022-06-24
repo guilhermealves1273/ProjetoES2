@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "MenuAdmin";
+    var hasError = ViewData["HasError"] as bool? ?? false;
+    Layout = "LayoutAdmin";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bem vindo Administrador:<h1>@UserSession.nome</h1></h1>
+</div>
+

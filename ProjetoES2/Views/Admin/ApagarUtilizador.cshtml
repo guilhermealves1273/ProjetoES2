@@ -1,0 +1,42 @@
+﻿@model ProjetoES2.Entities.Utilizador
+
+@{
+    ViewData["Title"] = "Apagar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Apagar Tarefa</h1>
+
+<h3>Tem a certeza que quer eliminar este utilizador?</h3>
+<div>
+    <h4>Utilizador</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tipo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tipo)
+        </dd>
+        
+        
+    </dl>
+    
+    <form asp-action="ApagarUtilizador" method="post">
+        <input type="hidden" asp-for="IdUser" />
+        <input type="submit" value="Apagar" class="btn btn-danger" /> |
+        <a asp-action="ListarUtilizadores">Voltar</a>
+    </form>
+</div>

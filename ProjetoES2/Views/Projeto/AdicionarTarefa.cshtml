@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProjetoES2.Entities.Tarefa>
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Adicionar Tarefa</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoHora)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem=>item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem =>item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+            <td>
+                <a  asp-action="ConfirmacaoAssociacao" asp-route-id="@item.IdTarefa">Adicionar</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    <a asp-action="ListarTarefas">Voltar</a>
+</div>
+
+ 

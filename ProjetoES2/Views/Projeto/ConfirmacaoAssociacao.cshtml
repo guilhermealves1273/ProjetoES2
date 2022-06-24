@@ -1,0 +1,45 @@
+﻿@model ProjetoES2.Entities.Tarefa
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Tem a certeza que quer associar esta tarefa?</h3>
+
+   
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrecoHora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrecoHora)
+        </dd>
+        
+        
+    </dl>
+    
+    
+<form asp-action="ConfirmacaoAssociacao" method="post">
+        <input type="hidden" asp-for="IdTarefa" />
+        <input type="submit" value="Adicionar" class="btn btn-danger" /> |
+        <a asp-action="AdicionarTarefa">Voltar</a>
+        </form>
+</div>
