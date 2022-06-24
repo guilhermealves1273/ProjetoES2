@@ -31,8 +31,8 @@ public class TarefaController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> criar(Tarefa tarefa)
     {
-        if (ModelState.IsValid)
-        {
+        
+            Console.WriteLine("ola");
             tarefa.IdUser = UserSession.idUtilizador;
             tarefa.estado = "Em curso";
             tarefa.DataInicio = DateTime.Now;
@@ -43,11 +43,7 @@ public class TarefaController : Controller
             await _Context.SaveChangesAsync();
             return RedirectToAction("Index", "Tarefa");
         }
-        else
-        {
-            return View();
-        }
-    }
+    
     
     public async Task<IActionResult> Terminar(int id)
     {

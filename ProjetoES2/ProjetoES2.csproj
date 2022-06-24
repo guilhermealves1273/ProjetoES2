@@ -73,16 +73,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pages" />
-    </ItemGroup>
-
-    <ItemGroup>
       <AdditionalFiles Include="Views\UserManager\ApagarUtilizador.cshtml" />
       <AdditionalFiles Include="Views\UserManager\EditarUtilizador.cshtml" />
       <AdditionalFiles Include="Views\UserManager\Index.cshtml" />
       <AdditionalFiles Include="Views\UserManager\LIstarProjetos.cshtml" />
       <AdditionalFiles Include="Views\UserManager\ListarTarefas.cshtml" />
       <AdditionalFiles Include="Views\UserManager\ListarUtilizadores.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Pages" />
     </ItemGroup>
 
 </Project>
