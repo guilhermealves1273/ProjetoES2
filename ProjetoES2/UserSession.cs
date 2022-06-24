@@ -11,6 +11,7 @@ namespace ProjetoES2
 
         public static string nome;
         public static int idUtilizador;
+        public static int idProjeto;
         public static string Username
         {
             get => Accessor.HttpContext?.Session.GetString(UserNameKey);

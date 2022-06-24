@@ -10,6 +10,8 @@ namespace ProjetoES2.Context
     {
         public MyDbContext()
         {
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
         }
 
         public MyDbContext(DbContextOptions<MyDbContext> options)

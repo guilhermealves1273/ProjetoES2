@@ -102,6 +102,7 @@ public class ProjetoController : Controller
     public async Task<IActionResult> ListarTarefas(int id)
     {
         Console.WriteLine("idProjeto" + id);
+        UserSession.idProjeto = id;
         var tarefa1 = _Context.Tarefas.ToList().FindAll(x => x.IdProjeto == id);
         return View(tarefa1);
 
@@ -120,10 +121,42 @@ public class ProjetoController : Controller
     {
         var tarefa = _Context.Tarefas.Find(id);
         Console.Write("numeroTarefas:"+tarefa.IdTarefa+"\n");
-        tarefa.IdProjeto = 0;
+        tarefa.IdProjeto = null;
         _Context.Tarefas.Update(tarefa);
         await _Context.SaveChangesAsync();
         return RedirectToAction("ListarTarefas");
+    }
+
+    public async Task<IActionResult> AdicionarTarefa()
+    {
+        var tarefas = _Context.Tarefas.ToList()
+            .FindAll(x => x.IdProjeto == null && x.IdUser == UserSession.idUtilizador);
+        return View(tarefas);
+    }
+
+
+    public async Task<IActionResult> ConfirmacaoAssociacao(int id)
+    {
+        var tarefa = _Context.Tarefas.Find(id);
+        return View(tarefa);
+    }
+    [HttpPost]
+    [ActionName("ConfirmacaoAssociacao")]
+    public async Task<IActionResult> Confirmacao(int idTarefa)
+    {
+        Console.WriteLine("adicionar:"+ idTarefa);
+        var tarefa = _Context.Tarefas.Find(idTarefa);
+        var projeto = _Context.Projetos.Find(UserSession.idProjeto);
+
+        
+            tarefa.IdProjeto = UserSession.idProjeto;
+            tarefa.PrecoHora = projeto!.PrecoHora;
+            _Context.Tarefas.Update(tarefa);
+            await _Context.SaveChangesAsync();
+            return RedirectToAction("Index");
+
+
+
     }
 
 }

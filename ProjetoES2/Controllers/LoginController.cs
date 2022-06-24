@@ -32,6 +32,12 @@ public class LoginController : Controller
                
             if (user != null)
             {
+                if (user.tipo.Equals("admin"))
+                { 
+                    UserSession.idUtilizador  = user.IdUser;
+                    UserSession.nome= user.Nome;
+                    return RedirectToAction("Index", "Admin");
+                }
                 UserSession.idUtilizador  = user.IdUser;
                 UserSession.nome= user.Nome;
                 Console.WriteLine(UserSession.nome);
