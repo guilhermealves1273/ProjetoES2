@@ -1,0 +1,74 @@
+﻿@model ProjetoES2.Models.RelatorioModel
+
+@{
+    ViewData["Title"] = "Listagem de tarefas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    
+</p>
+
+<h1>Junho</h1>
+<br/>
+
+
+<p> Tarefas</p>
+
+    
+<table class="table">
+    
+    
+    
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(Model => Model.tarefas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tarefas)
+        </th>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.tarefas)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.HorasTotais)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoTotal)
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    
+    @foreach (var item in Model)
+                     {
+    @foreach (var x in Model.tarefas)
+    {
+       
+            <tr>
+                <td>
+                    @Html.DisplayFor(item=>x.Descricao))
+                </td>
+                <td>
+                    @Html.DisplayFor(item=>x.PrecoHora)
+                </td>
+                
+
+            </tr>
+        }
+    }
+</table>
+
+<dt> Numero de horas gastas em Junho:@Model.HorasTotais </dt>
+
+<dt> Preço Total do mês de Junho em Tarefas:@Model.PrecoTotal</dt>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>

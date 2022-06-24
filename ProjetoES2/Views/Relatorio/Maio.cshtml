@@ -1,0 +1,74 @@
+﻿@model IEnumerable<ProjetoES2.Entities.Tarefa>
+@{
+    ViewData["Title"] = "Listagem de tarefas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    
+</p>
+
+<h1>Maio</h1>
+<br/>
+
+
+<p> Tarefas</p>
+
+    
+<table class="table" id="tabela">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataInicio)
+        </th>
+        
+        
+        <th>
+            @Html.DisplayNameFor(model => model.DataFim)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.PrecoHora)
+        </th>
+             
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFim)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoHora)
+            </td>
+            
+        </tr>
+    }
+</table>
+
+<dt> Numero de horas gastas em Maio: </dt>
+
+<dt> Preço Total do mês de Maio em Tarefas: </dt>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
