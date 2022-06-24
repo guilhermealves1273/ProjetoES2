@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "title";
-    Layout = "LayoutAdmin";
+    Layout = "LayoutUserManager";
 }
 
 <h2>Editar Utilizador</h2>
@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Admin" asp-action="EditarUtilizador" method="post">
+        <form asp-controller="UserManager" asp-action="EditarUtilizador" method="post">
             
             <input type="hidden" asp-for="IdUser"/>
 
@@ -34,19 +34,10 @@
                 <label class="control-label">Numero de horas diárias</label>
                 <input type="number" asp-for="NumHorasDia" class="form-control"/>
             </div>
-
-            <div class="form-group">
-                 <label class="control-label">Tipo de utilizador</label>
-                <select asp-for="tipo">
-                    <option value="admin">Administrador</option>
-                    <option value="user">Usuario</option>
-                    <option value="usserManager">User Manager</option>
-                </select>
-            </div>
             
             <button type="submit" class="btn btn-primary" style="margin-top: 10px"> Salvar</button>
             <br>
-            <a asp-controller="Admin" asp-action="ListarUtilizadores" role="button">Voltar</a>
+            <a asp-controller="UserManager" asp-action="ListarUtilizadores" role="button">Voltar</a>
         </form>
     </div>
 </div>

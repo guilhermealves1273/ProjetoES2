@@ -110,4 +110,17 @@ public class AdminController : Controller
         return RedirectToAction("ListarUtilizadores");
     }
 
+    public async Task<IActionResult> criarUtilizador()
+    {
+        return View();
+    }
+    
+    [HttpPost]
+    public async Task<IActionResult> criarUtilizador(Utilizador utilizador)
+    {
+        _context.Add(utilizador);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("ListarUtilizadores");
+    }
+
 }

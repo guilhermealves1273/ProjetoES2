@@ -5,13 +5,17 @@
     Layout = "LayoutAdmin";
 }
 
-<p>
-    
-</p>
+ <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary" role="button"  asp-controller="Admin" asp-action="criarUtilizador"> Criar novo utilizador</a>
+  </div>
+
+
+
+<br/>
   
 <h1> Listagem de Utilizadores</h1>
     
-<table class="table">
+<table class="table" id="tabela">
 <thead>
 <tr>
     <th>
@@ -29,7 +33,10 @@
     </th>
     
     <th>
-            @Html.DisplayNameFor(model => model.tipo)
+        @Html.DisplayNameFor(model => model.tipo)
+    </th>
+    <th>
+        
     </th>
            
 </tr>

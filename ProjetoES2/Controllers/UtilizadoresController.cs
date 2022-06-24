@@ -51,7 +51,7 @@ public class UtilizadoresController : Controller
             utilizador.tipo = "Admin";
         }
 
-        utilizador.tipo = "User";
+        utilizador.tipo = "user";
         
         _Context.Add(utilizador);
         await _Context.SaveChangesAsync();

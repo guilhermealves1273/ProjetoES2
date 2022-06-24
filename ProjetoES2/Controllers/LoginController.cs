@@ -38,12 +38,22 @@ public class LoginController : Controller
                     UserSession.nome= user.Nome;
                     return RedirectToAction("Index", "Admin");
                 }
-                UserSession.idUtilizador  = user.IdUser;
-                UserSession.nome= user.Nome;
-                Console.WriteLine(UserSession.nome);
-                Console.WriteLine(UserSession.idUtilizador);
-                
-                return RedirectToAction("Index","Home");
+                else if(user.tipo.Equals("userManager"))
+                {
+                    UserSession.idUtilizador  = user.IdUser;
+                    UserSession.nome= user.Nome;
+                    return RedirectToAction("Index", "UserManager");
+                    
+                }
+                else
+                {
+                    UserSession.idUtilizador = user.IdUser;
+                    UserSession.nome = user.Nome;
+                    Console.WriteLine(UserSession.nome);
+                    Console.WriteLine(UserSession.idUtilizador);
+
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
             ViewData["HasError"] = true;

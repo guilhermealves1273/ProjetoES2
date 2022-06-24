@@ -1,0 +1,76 @@
+﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@model IEnumerable<ProjetoES2.Entities.Utilizador>
+@{
+    ViewData["Title"] = "Listagem de Utilizadores";
+    Layout = "LayoutUserManager";
+}
+<br/>
+<div class="text-center">
+    
+    <br/>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="UserManager" asp-action="criarUtilizador"> Criar novo utilizador</a>
+    </div>
+
+    <br/>
+
+    <h1> Listagem de Utilizadores</h1>
+
+    <table class="table" id="tabela">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.NumHorasDia)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.tipo)
+            </th>
+            
+            <th>
+                
+            </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumHorasDia)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipo)
+                </td>
+                <td>
+                    <a  asp-controller="UserManager" asp-action="EditarUtilizador" asp-route-id="@item.IdUser" >Editar</a>
+                </td>
+
+            </tr>
+        }
+    </table>
+
+
+</div>

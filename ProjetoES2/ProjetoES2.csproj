@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="datatables.net-dt" Version="1.12.1" />
         <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.6" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
@@ -48,6 +49,12 @@
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Pages\ProjetoControler\Index.cshtml" />
       <_ContentIncludedByDefault Remove="Pages\ProjetoContr\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\UserManager\ApagarUtilizador.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\UserManager\EditarUtilizador.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\UserManager\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\UserManager\LIstarProjetos.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\UserManager\ListarTarefas.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\UserManager\ListarUtilizadores.cshtml" />
     </ItemGroup>
 
     <ItemGroup>
@@ -66,6 +73,15 @@
 
     <ItemGroup>
       <Folder Include="Pages" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\UserManager\ApagarUtilizador.cshtml" />
+      <AdditionalFiles Include="Views\UserManager\EditarUtilizador.cshtml" />
+      <AdditionalFiles Include="Views\UserManager\Index.cshtml" />
+      <AdditionalFiles Include="Views\UserManager\LIstarProjetos.cshtml" />
+      <AdditionalFiles Include="Views\UserManager\ListarTarefas.cshtml" />
+      <AdditionalFiles Include="Views\UserManager\ListarUtilizadores.cshtml" />
     </ItemGroup>
 
 </Project>

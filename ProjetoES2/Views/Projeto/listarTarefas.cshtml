@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<ProjetoES2.Entities.Tarefa>
 @{
     ViewData["Title"] = "Listagem de tarefas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <p>
@@ -11,14 +12,13 @@
     <a class="btn btn-primary" role="button"  asp-controller="Projeto" asp-action="AdicionarTarefa"> Adicionar tarefa ao projeto</a>
 </div>
 
-<p>
-    
-</p>
+<br/>
+
 
 <h1> Listagem de Tarefas</h1>
 
     
-<table class="table">
+<table class="table" id="tabela">
     <thead>
     <tr>
         <th>
@@ -39,6 +39,9 @@
         
         <th>
             @Html.DisplayNameFor(model => model.PrecoHora)
+        </th>
+        <th>
+            
         </th>
                 
                

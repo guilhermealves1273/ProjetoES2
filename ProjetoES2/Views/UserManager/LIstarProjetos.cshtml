@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<ProjetoES2.Entities.Projeto>
 @{
     ViewData["Title"] = "Listagem de Projetos";
-    Layout = "LayoutAdmin";
+    Layout = "LayoutUserManager";
 }
 
-<p>
-    
-</p>
-  
+<br/>
+  <div class="text-center">
 <h1> Listagem de Projetos</h1>
     
-<table class="table" id="tabela">
+<Table class="table" id="tabela">
     <thead>
     <tr>
         
@@ -44,9 +42,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.PrecoHora)
             </td>
-            
-
-            
+     
         </tr>
     }
-</table>
+</Table>
+  </div>
