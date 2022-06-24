@@ -65,7 +65,7 @@ public class RelatorioController : Controller
 
        model.HorasTotais =1;
        model.PrecoTotal = 2;
-        return View(model);
+       return View(model);
     }
     
     public IActionResult Julho()
