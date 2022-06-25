@@ -24,31 +24,124 @@ public class RelatorioController : Controller
     public IActionResult Janeiro()
     {
       
-        return View();
+        List<Tarefa> tarefas = new List<Tarefa>();
+        tarefas= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 1 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
+        var countTar= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 1 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador).Count;
+        RelatorioModel model = new RelatorioModel();
+        model.tarefas = tarefas;
+        var PrecoTotal = 0;
+        var HorasTotais = 0;
+       
+        foreach (var tarefa in tarefas)
+        {
+          
+            var horas = tarefa.DataFim.Value.TimeOfDay.Hours - tarefa.DataInicio.TimeOfDay.Hours;
+            PrecoTotal = (int)(PrecoTotal + (horas * tarefa.PrecoHora));
+            HorasTotais = HorasTotais + horas;
+
+        }
+
+        model.HorasTotais=HorasTotais;
+        model.PrecoTotal = PrecoTotal;
+        return View(model);
     }
+    
     
     public IActionResult Fevereiro()
     {
-        var tarefas = _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 2 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
-        return View();
+        List<Tarefa> tarefas = new List<Tarefa>();
+        tarefas= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 2 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
+        var countTar= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 2 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador).Count;
+        RelatorioModel model = new RelatorioModel();
+        model.tarefas = tarefas;
+        var PrecoTotal = 0;
+        var HorasTotais = 0;
+       
+        foreach (var tarefa in tarefas)
+        {
+          
+            var horas = tarefa.DataFim.Value.TimeOfDay.Hours - tarefa.DataInicio.TimeOfDay.Hours;
+            PrecoTotal = (int)(PrecoTotal + (horas * tarefa.PrecoHora));
+            HorasTotais = HorasTotais + horas;
+
+        }
+
+        model.HorasTotais=HorasTotais;
+        model.PrecoTotal = PrecoTotal;
+        return View(model);
+    
     }
     
     public IActionResult Marco()
     {
-        var tarefas = _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 3 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
-        return View();
+        List<Tarefa> tarefas = new List<Tarefa>();
+        tarefas= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 3 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
+        var countTar= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 3 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador).Count;
+        RelatorioModel model = new RelatorioModel();
+        model.tarefas = tarefas;
+        var PrecoTotal = 0;
+        var HorasTotais = 0;
+       
+        foreach (var tarefa in tarefas)
+        {
+          
+            var horas = tarefa.DataFim.Value.TimeOfDay.Hours - tarefa.DataInicio.TimeOfDay.Hours;
+            PrecoTotal = (int)(PrecoTotal + (horas * tarefa.PrecoHora));
+            HorasTotais = HorasTotais + horas;
+
+        }
+
+        model.HorasTotais=HorasTotais;
+        model.PrecoTotal = PrecoTotal;
+        return View(model);
     }
     
     public IActionResult Abril()
     {
-        var tarefas = _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 4 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
-        return View();
+        List<Tarefa> tarefas = new List<Tarefa>();
+        tarefas= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 4 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
+        var countTar= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 4 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador).Count;
+        RelatorioModel model = new RelatorioModel();
+        model.tarefas = tarefas;
+        var PrecoTotal = 0;
+        var HorasTotais = 0;
+       
+        foreach (var tarefa in tarefas)
+        {
+          
+            var horas = tarefa.DataFim.Value.TimeOfDay.Hours - tarefa.DataInicio.TimeOfDay.Hours;
+            PrecoTotal = (int)(PrecoTotal + (horas * tarefa.PrecoHora));
+            HorasTotais = HorasTotais + horas;
+
+        }
+
+        model.HorasTotais=HorasTotais;
+        model.PrecoTotal = PrecoTotal;
+        return View(model);
     }
     
     public IActionResult Maio()
     {
-        var tarefas = _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 5 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
-        return View();
+        List<Tarefa> tarefas = new List<Tarefa>();
+        tarefas= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 5 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador);
+        var countTar= _Context.Tarefas.ToList().FindAll(x => x.DataInicio.Month == 5 && x.estado.Equals("Terminada") && x.IdUser==UserSession.idUtilizador).Count;
+        RelatorioModel model = new RelatorioModel();
+        model.tarefas = tarefas;
+        var PrecoTotal = 0;
+        var HorasTotais = 0;
+       
+        foreach (var tarefa in tarefas)
+        {
+          
+            var horas = tarefa.DataFim.Value.TimeOfDay.Hours - tarefa.DataInicio.TimeOfDay.Hours;
+            PrecoTotal = (int)(PrecoTotal + (horas * tarefa.PrecoHora));
+            HorasTotais = HorasTotais + horas;
+
+        }
+
+        model.HorasTotais=HorasTotais;
+        model.PrecoTotal = PrecoTotal;
+        return View(model);
     }
     
     public IActionResult Junho()
