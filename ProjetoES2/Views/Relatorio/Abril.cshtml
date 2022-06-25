@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ProjetoES2.Entities.Tarefa>
+﻿@model ProjetoES2.Models.RelatorioModel
+
 @{
     ViewData["Title"] = "Listagem de tarefas";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,67 +8,64 @@
 <p>
     
 </p>
-
-<h1>Abril</h1>
+<div class="text-center">
+    <h3>Tarefas de Abril</h3>
+</div>
 <br/>
 
+<p>
+    
+</p>
 
-<p> Tarefas</p>
+<p>
+    
+</p>
+
+
 
     
-<table class="table" id="tabela">
+<table class="table">
+    
+    
+    
     <thead>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Descricao)
+            <h4>Descrição</h4>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataInicio)
+            <h4>Preço por Hora</h4>
         </th>
-        
-        
-        <th>
-            @Html.DisplayNameFor(model => model.DataFim)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.PrecoHora)
-        </th>
-             
+
+
+       
+
+       
+
     </tr>
     </thead>
     <tbody>
-    @foreach (var item in Model)
+    
+   
+    @foreach (var x in Model.tarefas)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
+                @Html.DisplayFor(item=>x.Descricao)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DataInicio)
+                @Html.DisplayFor(item=>x.PrecoHora)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataFim)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrecoHora)
-            </td>
-            
+                
+
         </tr>
+        
     }
 </table>
-
-<dt> Numero de horas gastas em Abril: </dt>
-
-<dt> Preço Total do mês de Abril em Tarefas: </dt>
+<p></p>
+<dt> Numero de horas gastas em Abril: @Model.HorasTotais </dt>
+<p></p>
+<dt> Preço Total do mês de Abril em Tarefas: @Model.PrecoTotal</dt>
 
 <div>
     <a asp-action="Index">Voltar</a>
